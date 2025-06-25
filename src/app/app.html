@@ -1,37 +1,85 @@
 
-<p>Concatenate two strings.</p>
-
+<p> 1 : Concatenate two strings.</p>
 <input type="text" [(ngModel)]="firstString" placeholder="First String">
 <input type="text" [(ngModel)]="secondString" placeholder="Second String">
 <p>Concatenated Result: {{ firstString + secondString }}</p>
  <p>Concatenated Result with Space: {{ firstString + ' ' + secondString }}</p>
 
- <p>Upper Case</p>
+ <p> 2 : Upper Case</p>
 <input type="text" [(ngModel)]="upperCaseString" placeholder="Enter text to convert to upper case">
 <p>Upper Case Result: {{ upperCaseString.toUpperCase() }}</p>
 
-<p>Lower Case</p>
-<input type="text" [(ngModel)]="lowerCaseString" placeholder="Enter text to convert to upper case">
-<p>Lower Case Result: {{ lowerCaseString.toLowerCase() }}</p>
-
-<p>Lower Case</p>
+<p> 3 : Lower Case</p>
 <input type="text" [(ngModel)]="lowerCaseString" placeholder="Enter text to convert to upper case">
 <p>Lower Case Result: {{ lowerCaseString.toLowerCase() }}</p>
 
 
-<p>String Length</p>
+<p> 4 : String Length</p>
 <input type="text" [(ngModel)]="lengthString" placeholder="Enter text to get length">
 <p>String Length Result: {{ lengthString.length }}</p>
 
-<p>Slice String</p>
+<p> 5 : Slice String</p>
 <input type="text" [(ngModel)]="sliceString" placeholder="Enter text to slice">
 <p>Slice Result: {{ sliceString.slice(0, 3) }}</p>
 
 
 
-<p>longest string in sentence</p>
+<p> 6 : longest string in sentence</p>
 <input type="text" [(ngModel)]="sentenceString" placeholder="Enter sentence to find longest word">
 <p>Longest Word: {{ getLongestWord(sentenceString) }}</p>
+
+<p> 7 : Reverse String</p>
+<input type="text" [(ngModel)]="reverseString" placeholder="Enter text to reverse">
+<p>Reversed Result: {{ reverseString.split('').reverse().join('') }}</p>  
+
+<p> 8 : Capitalize First Letter</p>
+<input type="text" [(ngModel)]="capitalizeString" placeholder="Enter text to capitalize first letter">
+<p>Capitalized Result: {{ capitalizeFirstLetter(capitalizeString) }}</p>
+
+<p> 9 :String array</p>
+<input type="text" [(ngModel)]="stringArrayInput" placeholder="Enter comma-separated strings">
+<p>String Array: {{ getStringArray(stringArrayInput) }}</p>
+
+
+
+<p> 10 : String Array with Fruits</p>
+<input type="text" [(ngModel)]="fruitInput" placeholder="Enter fruit name"> 
+<button (click)="addFruit(fruitInput)">Add Fruit</button>
+<button (click)="removeFruit(fruitInput)">Remove Fruit</button>
+<button (click)="updateFruit(1,fruitInput)">Update Fruit</button>
+<ul>
+  <li *ngFor="let fruit of fruits">{{ fruit }}</li>
+</ul>
+
+<p> 11 : String Array with Quoted Strings</p>
+<p>{{ quotedArray.join(', ') }}</p>
+
+<p> 12 : second longest string</p>
+<input type="text" [(ngModel)]="secondLongestInput" placeholder="Enter sentence to find second longest word">
+<p>Second Longest Word: {{ getSecondLongestWord(secondLongestInput) }}</p> 
+
+
+<p> 13 : Trim String</p>
+<input type="text" [(ngModel)]="trimString" placeholder="Enter text to trim">
+<p>Trimmed Result: {{ trimString.trim() }}</p>
+
+
+
+<p> 14 : Array value match</p>
+<input type="text" [(ngModel)]="arrayMatchInput" placeholder="Enter value to match in array">
+
+<ul>
+  <li *ngFor="let fruit of fruits">{{ fruit }}</li>
+</ul>
+
+<p>Array Match Result: {{ arrayMatch(arrayMatchInput) }}</p>
+
+<div *ngFor="let key of groupedFruits | keyvalue">
+  <h3>{{ key.key }}</h3>
+  <ul>
+    <li *ngFor="let fruit of key.value">{{ fruit }}</li>
+  </ul>
+</div>
 
 
 <router-outlet></router-outlet>
